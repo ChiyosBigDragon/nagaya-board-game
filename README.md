@@ -30,26 +30,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## メモ
-`yarn dev` する前に
+`yarn dev` する前に `docker-compose up -d` する．
 - `server/.env`
 - `server/prisma/.env`
 を埋める．`API_DATABASE_URL` と `SHADOW_DATABASE_URL` は違うものを使い，あらかじめ建てておく．(https://www.prisma.io/docs/concepts/components/prisma-migrate#cloud-hosted-shadow-databases)
-
-ローカルではこんな感じ．
-```
-docker run --rm -d \
-    -p 5432:5432 \
-    -e POSTGRES_USER=postgres \
-    -e POSTGRES_PASSWORD=password \
-    -e POSTGRES_DB=frourio \
-    -e DATABASE_HOST=localhost \
-    postgres:12-alpine
-docker run --rm -d \
-    -p 15432:5432 \
-    -e POSTGRES_USER=postgres \
-    -e POSTGRES_PASSWORD=password \
-    -e POSTGRES_DB=frourio-shadow \
-    -e DATABASE_HOST=localhost \
-    postgres:12-alpine
-```
-

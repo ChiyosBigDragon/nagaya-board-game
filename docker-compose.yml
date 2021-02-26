@@ -1,16 +1,22 @@
 version: "3.8"
 
 services:
-  app:
-    build: .
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-    links:
-      - db
-
   db:
     image: postgres:12
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=frourio
+      - DATABASE_HOST=localhost
+
+  db-shadow:
+    image: postgres:12
+    ports:
+      - "15432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=frourio-shadow
+      - DATABASE_HOST=localhost
