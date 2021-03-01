@@ -7,7 +7,6 @@ import UserBanner from '~/components/UserBanner'
 import type { Task } from '$prisma/client'
 import type { FormEvent, ChangeEvent } from 'react'
 import io from 'socket.io-client'
-import { API_ORIGIN } from '$/service/envValues'
 
 const Home = () => {
   const { data: tasks, error, revalidate } = useAspidaSWR(apiClient.tasks)
@@ -41,9 +40,9 @@ const Home = () => {
 
   // Socket
   const [num, setNum] = useState(0)
-  console.log('http://localhost:8080/')
+  console.log(process.env.NEXT_PUBLIC_API_ORIGIN)
   useEffect(() => {
-    const socket = io('http://localhost:8080/')
+    const socket = io(process.env.NEXT_PUBLIC_API_ORIGIN)
     socket.on('FromAPI', (n: number) => {
       setNum(() => n)
     })
