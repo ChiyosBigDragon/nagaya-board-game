@@ -1,11 +1,13 @@
 import Head from 'next/head'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useAspidaSWR from '@aspida/swr'
 import styles from '~/styles/Home.module.css'
 import { apiClient } from '~/utils/apiClient'
 import UserBanner from '~/components/UserBanner'
 import type { Task } from '$prisma/client'
 import type { FormEvent, ChangeEvent } from 'react'
+import io from 'socket.io-client'
+import { API_ORIGIN } from '$/service/envValues'
 
 const Home = () => {
   const { data: tasks, error, revalidate } = useAspidaSWR(apiClient.tasks)
@@ -37,6 +39,17 @@ const Home = () => {
     revalidate()
   }, [])
 
+  // Socket
+  const [num, setNum] = useState(0)
+  console.log('http://localhost:8080/')
+  useEffect(() => {
+    const socket = io('http://localhost:8080/')
+    socket.on('FromAPI', (n: number) => {
+      setNum(() => n)
+    })
+    // return () => socket.disconnect()
+  }, [])
+
   if (error) return <div>failed to load</div>
   if (!tasks) return <div>loading...</div>
 
@@ -61,6 +74,7 @@ const Home = () => {
             <input value={label} type="text" onChange={inputLabel} />
             <input type="submit" value="ADD" />
           </form>
+          <div>{num}</div>
           <ul className={styles.tasks}>
             {tasks.map((task) => (
               <li key={task.id}>
