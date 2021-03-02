@@ -34,5 +34,3 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `server/.env`
 - `server/prisma/.env`
 を埋める．`API_DATABASE_URL` と `SHADOW_DATABASE_URL` は違うものを使い，あらかじめ建てておく．(https://www.prisma.io/docs/concepts/components/prisma-migrate#cloud-hosted-shadow-databases)
-
-フロントからさわる環境変数は prefix に `NEXT_PUBLIC_` をつける．
