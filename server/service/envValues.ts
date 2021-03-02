@@ -10,6 +10,7 @@ const API_SERVER_PORT =
 const API_BASE_PATH = process.env.API_BASE_PATH ?? ''
 const API_ORIGIN = process.env.API_ORIGIN ?? ''
 const API_UPLOAD_DIR = process.env.API_UPLOAD_DIR ?? ''
+const HOST_ORIGIN = process.env.HOST_ORIGIN ?? ''
 
 export {
   API_JWT_SECRET,
@@ -18,5 +19,6 @@ export {
   API_SERVER_PORT,
   API_BASE_PATH,
   API_ORIGIN,
-  API_UPLOAD_DIR
+  API_UPLOAD_DIR,
+  HOST_ORIGIN
 }
