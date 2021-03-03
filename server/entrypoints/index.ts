@@ -16,6 +16,7 @@ app.ready().then(
         console.log('server: disconnect ', socket.id)
       })
     })
+    app.listen(API_SERVER_PORT, '0.0.0.0')
   },
   (err) => {
     console.log('an error happened', err)
@@ -26,7 +27,3 @@ const getApiAndEmit = (socket: SocketIO.Socket) => {
   const response: string = Math.random().toString()
   socket.emit('FromAPI', response)
 }
-
-console.log(`listen on ${API_SERVER_PORT}`)
-app.listen(API_SERVER_PORT, '0.0.0.0')
-console.log(`listen end ${API_SERVER_PORT}`)
