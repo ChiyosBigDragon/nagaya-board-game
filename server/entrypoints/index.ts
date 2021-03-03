@@ -27,4 +27,6 @@ const getApiAndEmit = (socket: SocketIO.Socket) => {
   socket.emit('FromAPI', response)
 }
 
+console.log(`listen on ${API_SERVER_PORT}`)
 app.listen(API_SERVER_PORT, '0.0.0.0')
+console.log(`listen end ${API_SERVER_PORT}`)
