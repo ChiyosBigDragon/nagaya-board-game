@@ -1,13 +1,6 @@
 module.exports = {
   root: true,
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:prettier/recommended',
-    'prettier'
-  ],
+  extends: ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:prettier/recommended", "prettier", "plugin:storybook/recommended"],
   plugins: ['@typescript-eslint', 'react'],
   parser: '@typescript-eslint/parser',
   env: {
@@ -30,10 +23,10 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off'
   },
-  overrides: [
-    {
-      files: ['*.js'],
-      rules: { '@typescript-eslint/no-var-requires': ['off'] }
+  overrides: [{
+    files: ['*.js'],
+    rules: {
+      '@typescript-eslint/no-var-requires': ['off']
     }
-  ]
-}
+  }]
+};
