@@ -10,7 +10,9 @@ export default {
   }
 } as ComponentMeta<typeof CamelStack>
 
-const Template: ComponentStory<typeof CamelStack> = (args) => {
+const Template: ComponentStory<
+  (props: CamelStackProps & { numberRange?: number }) => JSX.Element
+> = (args) => {
   const camels: CamelStackProps = {
     camels: (args.camels.slice(0, args.numberRange) as unknown) as [
       CamelProps,
