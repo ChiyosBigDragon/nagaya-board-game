@@ -8,7 +8,11 @@ export type Props = {
 
 export function Camel(props: Props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 18">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 26 18"
+      style={{ display: 'block' }}
+    >
       <g>
         <path
           fill="#000000"
