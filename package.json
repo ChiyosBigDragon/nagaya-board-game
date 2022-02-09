@@ -26,7 +26,8 @@
     "pretypecheck": "npm run generate",
     "typecheck": "tsc --noEmit && tsc --noEmit -p server",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "wasm": "wasm-pack build ./wasm"
   },
   "dependencies": {
     "@aspida/axios": "^1.5.0",
